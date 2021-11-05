@@ -1,0 +1,154 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/Fruktur-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Images/DropSpiderBackground.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 75
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 75
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 75
+font_data = ExtResource( 1 )
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+visible = false
+margin_right = 1024.0
+margin_bottom = 576.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Title" type="Label" parent="UI"]
+margin_left = 259.0
+margin_top = 8.0
+margin_right = 771.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.882353, 0.203922, 0.203922, 1 )
+text = "Drop Spider!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu Buttons" type="Node2D" parent="UI"]
+
+[node name="Start" type="Node2D" parent="UI/Menu Buttons"]
+
+[node name="StartMenu" type="VBoxContainer" parent="UI/Menu Buttons/Start"]
+margin_left = 259.0
+margin_top = 148.0
+margin_right = 784.0
+margin_bottom = 513.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="UI/Menu Buttons/Start/StartMenu"]
+margin_right = 525.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 2 )
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="UI/Menu Buttons/Start/StartMenu"]
+margin_top = 104.0
+margin_right = 525.0
+margin_bottom = 204.0
+custom_fonts/font = SubResource( 3 )
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="UI/Menu Buttons/Start/StartMenu"]
+margin_top = 208.0
+margin_right = 525.0
+margin_bottom = 308.0
+custom_fonts/font = SubResource( 4 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveTween" type="Tween" parent="UI/Menu Buttons/Start"]
+
+[node name="DifficultyMenu" type="VBoxContainer" parent="UI/Menu Buttons"]
+margin_left = 1024.0
+margin_top = 148.0
+margin_right = 1549.0
+margin_bottom = 513.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Easy" type="Button" parent="UI/Menu Buttons/DifficultyMenu"]
+margin_right = 525.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 2 )
+text = "Easy"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Medium" type="Button" parent="UI/Menu Buttons/DifficultyMenu"]
+margin_top = 104.0
+margin_right = 525.0
+margin_bottom = 204.0
+custom_fonts/font = SubResource( 3 )
+text = "Medium"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hard" type="Button" parent="UI/Menu Buttons/DifficultyMenu"]
+margin_top = 208.0
+margin_right = 525.0
+margin_bottom = 308.0
+custom_fonts/font = SubResource( 4 )
+text = "Hard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveTween" type="Tween" parent="UI/Menu Buttons/DifficultyMenu"]
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Score" type="Node2D" parent="."]
+
+[node name="Emitters" type="Node2D" parent="."]
+
+[node name="Globals" type="Node2D" parent="."]
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Start" to="UI/Menu Buttons/Start" method="_on_Start_pressed"]
