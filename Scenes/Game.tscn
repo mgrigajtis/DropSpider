@@ -165,3 +165,4 @@ script = ExtResource( 7 )
 
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Start" to="UI/Menu Buttons" method="_on_Start_pressed"]
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Settings" to="UI/Menu Buttons" method="_on_Settings_pressed"]
+[connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Quit" to="UI/Menu Buttons" method="_on_Quit_pressed"]

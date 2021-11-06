@@ -12,6 +12,7 @@ config_version=4
 
 config/name="Drop Spider"
 run/main_scene="res://Scenes/Game.tscn"
+boot_splash/image="res://Images/SplashLogo.png"
 config/icon="res://icon.png"
 
 [autoload]
