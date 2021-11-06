@@ -10,6 +10,9 @@ extends Node2D
 func _ready():
 	pass # Replace with function body.
 
+func _on_Start_pressed():
+	get_node("Start").move(Vector2(-1024, 0))
 
 func _on_Settings_pressed():
 	get_node("Start").move(Vector2(-1024, 0))
+	get_node("Difficulty").move(Vector2(-768, 0))
