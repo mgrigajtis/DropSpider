@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Fonts/Fruktur-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Images/DropSpiderBackground.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Spider.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Globals.gd" type="Script" id=7]
+[ext_resource path="res://SoundEffects/music.ogg" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -25,6 +26,20 @@ size = 75
 font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=5]
+
+[sub_resource type="DynamicFont" id=7]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=8]
+default_font = SubResource( 7 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=10]
+default_font = SubResource( 9 )
 
 [sub_resource type="RectangleShape2D" id=6]
 
@@ -169,9 +184,29 @@ __meta__ = {
 
 [node name="MoveTween" type="Tween" parent="UI/Menu Buttons/Difficulty"]
 
-[node name="Buttons" type="Node2D" parent="."]
+[node name="Score Label" type="Label" parent="UI"]
+margin_left = 16.0361
+margin_top = 489.994
+margin_right = 183.036
+margin_bottom = 565.994
+theme = SubResource( 8 )
+text = "Score:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Score" type="Node2D" parent="."]
+[node name="Score" type="Label" parent="UI"]
+margin_left = 217.379
+margin_top = 488.213
+margin_right = 257.379
+margin_bottom = 564.213
+theme = SubResource( 10 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Node2D" parent="."]
 
 [node name="Globals" type="Node2D" parent="."]
 script = ExtResource( 7 )
@@ -183,12 +218,15 @@ position = Vector2( 596, 114 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2( 0.58786, 1.47424 )
 scale = Vector2( 51.12, 28.8 )
 shape = SubResource( 6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
 
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Start" to="UI/Menu Buttons" method="_on_Start_pressed"]
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Settings" to="UI/Menu Buttons" method="_on_Settings_pressed"]

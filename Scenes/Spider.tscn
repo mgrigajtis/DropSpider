@@ -4,6 +4,7 @@
 [ext_resource path="res://Scripts/Spider.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.12837, 11.9536 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Walk"
@@ -24,12 +25,12 @@ tracks/0/keys = {
 }
 
 [node name="Spider" type="Node2D"]
-script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2( 2.16, 1.4 )
+scale = Vector2( 2.44, 1.4 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Area2D"]

@@ -15,3 +15,13 @@ func _on_Area2D_area_entered(area):
 	if "areaType" in area:
 		if area.areaType == "DestroyLine":
 			queue_free()
+			
+		if area.areaType == "Spider":
+			$Area2D/AudioStreamPlayer.play()
+			globals.Score += 50
+			get_tree().get_root().get_node("Game/UI/Score").text = str(globals.Score)
+			
+			if globals.Score % 250 == 0:
+				globals.InsectSpeed = globals.InsectSpeed - 0.25
+			
+			queue_free()

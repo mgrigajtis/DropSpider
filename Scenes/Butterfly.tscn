@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Butterfly.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Butterfly.png" type="Texture" id=2]
-[ext_resource path="res://Scripts/Area2D.gd" type="Script" id=3]
+[ext_resource path="res://SoundEffects/score.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 8.24693 )
@@ -27,7 +27,6 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -1.5874, -5.95275 )
@@ -44,5 +43,9 @@ frame = 4
 anims/Fly = SubResource( 2 )
 
 [node name="MoveTween" type="Tween" parent="Area2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Area2D"]
+stream = ExtResource( 3 )
+volume_db = 2.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

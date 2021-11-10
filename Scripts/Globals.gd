@@ -4,6 +4,8 @@ extends Node2D
 var Score = 0
 var Difficulty = 1.0
 var GamePlaying = false
+var InsectSpeed = 10.0
+var InsectSpawnTimeInterval = 2.0
 
 func move(node, target):	
 	var moveTween = node.get_node("MoveTween")
