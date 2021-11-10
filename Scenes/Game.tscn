@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Fonts/Fruktur-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Images/DropSpiderBackground.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Menu Buttons.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/DestroyLine.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Spider.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Globals.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -23,7 +26,10 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=5]
 
+[sub_resource type="RectangleShape2D" id=6]
+
 [node name="Game" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -45,7 +51,9 @@ __meta__ = {
 
 [node name="UI" type="Node2D" parent="."]
 
-[node name="Title" type="Label" parent="UI"]
+[node name="Title" type="Node2D" parent="UI"]
+
+[node name="TitleText" type="Label" parent="UI/Title"]
 margin_left = 259.0
 margin_top = 8.0
 margin_right = 771.0
@@ -60,6 +68,8 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MoveTween" type="Tween" parent="UI/Title"]
 
 [node name="Menu Buttons" type="Node2D" parent="UI"]
 script = ExtResource( 3 )
@@ -148,9 +158,9 @@ __meta__ = {
 }
 
 [node name="Back" type="Button" parent="UI/Menu Buttons/Difficulty/DifficultyMenu"]
-margin_top = 400.0
+margin_top = 312.0
 margin_right = 525.0
-margin_bottom = 500.0
+margin_bottom = 412.0
 custom_fonts/font = SubResource( 4 )
 text = "Back"
 __meta__ = {
@@ -163,12 +173,22 @@ __meta__ = {
 
 [node name="Score" type="Node2D" parent="."]
 
-[node name="Emitters" type="Node2D" parent="."]
-
 [node name="Globals" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
-[node name="Sprites" type="Node2D" parent="."]
+[node name="DestroyLine" parent="." instance=ExtResource( 4 )]
+
+[node name="Spider" parent="." instance=ExtResource( 6 )]
+position = Vector2( 596, 114 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( 0.58786, 1.47424 )
+scale = Vector2( 51.12, 28.8 )
+shape = SubResource( 6 )
 
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Start" to="UI/Menu Buttons" method="_on_Start_pressed"]
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Settings" to="UI/Menu Buttons" method="_on_Settings_pressed"]
@@ -177,3 +197,6 @@ script = ExtResource( 7 )
 [connection signal="pressed" from="UI/Menu Buttons/Difficulty/DifficultyMenu/Medium" to="UI/Menu Buttons" method="_on_Medium_pressed"]
 [connection signal="pressed" from="UI/Menu Buttons/Difficulty/DifficultyMenu/Hard" to="UI/Menu Buttons" method="_on_Hard_pressed"]
 [connection signal="pressed" from="UI/Menu Buttons/Difficulty/DifficultyMenu/Back" to="UI/Menu Buttons" method="_on_Back_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="released" from="TouchScreenButton" to="." method="_on_TouchScreenButton_released"]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/DestroyLineArea2D.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.3811, 6.96626 )
+
+[node name="DestroyLine" type="Node2D"]
+position = Vector2( 1156.8, -230.258 )
+scale = Vector2( 1, 2.08 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, 3.05176e-05 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 28.2843, 278.6 )
+scale = Vector2( 2.68, -45.72 )
+shape = SubResource( 1 )
