@@ -21,7 +21,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 5.15563 )
+extents = Vector2( 10, 3.6132 )
 
 [node name="Raven" type="Node2D"]
 script = ExtResource( 2 )
@@ -38,8 +38,8 @@ frame = 7
 anims/Fly = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -7.29601, -6.73477 )
-scale = Vector2( 7.16, 7.24 )
+position = Vector2( -4.48985, -4.48985 )
+scale = Vector2( 6.72, 3.49623 )
 shape = SubResource( 1 )
 
 [node name="MoveTween" type="Tween" parent="Area2D"]

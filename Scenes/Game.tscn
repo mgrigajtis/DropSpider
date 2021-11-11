@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Fonts/Fruktur-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Images/DropSpiderBackground.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scenes/Spider.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Globals.gd" type="Script" id=7]
 [ext_resource path="res://SoundEffects/music.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Images/Sound.png" type="Texture" id=9]
+[ext_resource path="res://SoundEffects/score.ogg" type="AudioStream" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -41,6 +43,13 @@ font_data = ExtResource( 1 )
 [sub_resource type="Theme" id=10]
 default_font = SubResource( 9 )
 
+[sub_resource type="DynamicFont" id=11]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=12]
+default_font = SubResource( 11 )
+
 [sub_resource type="RectangleShape2D" id=6]
 
 [node name="Game" type="Node2D"]
@@ -63,6 +72,13 @@ texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Web" type="Line2D" parent="."]
+width = 2.0
+default_color = Color( 0.729412, 0.741176, 0.796078, 1 )
+
+[node name="Spider" parent="." instance=ExtResource( 6 )]
+position = Vector2( 596, 114 )
 
 [node name="UI" type="Node2D" parent="."]
 
@@ -184,6 +200,16 @@ __meta__ = {
 
 [node name="MoveTween" type="Tween" parent="UI/Menu Buttons/Difficulty"]
 
+[node name="AudioToggle" type="Button" parent="UI/Menu Buttons"]
+margin_left = 33.8541
+margin_top = 23.1633
+margin_right = 109.854
+margin_bottom = 97.1633
+icon = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Score Label" type="Label" parent="UI"]
 margin_left = 16.0361
 margin_top = 489.994
@@ -206,15 +232,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Buttons" type="Node2D" parent="."]
+[node name="MessageLabel" type="Label" parent="UI"]
+margin_left = 715.474
+margin_top = 480.542
+margin_right = 755.474
+margin_bottom = 556.542
+theme = SubResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Globals" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
 [node name="DestroyLine" parent="." instance=ExtResource( 4 )]
-
-[node name="Spider" parent="." instance=ExtResource( 6 )]
-position = Vector2( 596, 114 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -224,9 +255,12 @@ position = Vector2( 0.58786, 1.47424 )
 scale = Vector2( 51.12, 28.8 )
 shape = SubResource( 6 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
+
+[node name="EffectsPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
 
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Start" to="UI/Menu Buttons" method="_on_Start_pressed"]
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Settings" to="UI/Menu Buttons" method="_on_Settings_pressed"]
@@ -235,6 +269,7 @@ autoplay = true
 [connection signal="pressed" from="UI/Menu Buttons/Difficulty/DifficultyMenu/Medium" to="UI/Menu Buttons" method="_on_Medium_pressed"]
 [connection signal="pressed" from="UI/Menu Buttons/Difficulty/DifficultyMenu/Hard" to="UI/Menu Buttons" method="_on_Hard_pressed"]
 [connection signal="pressed" from="UI/Menu Buttons/Difficulty/DifficultyMenu/Back" to="UI/Menu Buttons" method="_on_Back_pressed"]
+[connection signal="pressed" from="UI/Menu Buttons/AudioToggle" to="UI/Menu Buttons" method="_on_AudioToggle_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_TouchScreenButton_pressed"]
 [connection signal="released" from="TouchScreenButton" to="." method="_on_TouchScreenButton_released"]

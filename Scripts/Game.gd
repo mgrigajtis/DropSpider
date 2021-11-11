@@ -20,13 +20,14 @@ func spawn_sprite():
 	var randomNumber = rng.randf_range(0, Sprites.size())
 	var sprite = Sprites[randomNumber].instance()
 	var randomYNumber = rng.randf_range(250, 500)
+	var randomSpeed = rng.randf_range(globals.InsectSpeed - 3, globals.InsectSpeed + 3)
 	
 	sprite.position = Vector2(-250, randomYNumber)
 	
 	add_child(sprite)
 	
 	var moveTween = sprite.get_node("Area2D/MoveTween")
-	moveTween.interpolate_property(sprite, "position", sprite.position, Vector2(2048, randomYNumber), globals.InsectSpeed, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	moveTween.interpolate_property(sprite, "position", sprite.position, Vector2(2048, randomYNumber), randomSpeed, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	moveTween.start()
 
 # Called when the node enters the scene tree for the first time.
@@ -35,6 +36,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$Web.clear_points()
+	$Web.add_point(Vector2(596, 114))
+	$Web.add_point(Spider.position)
+	
 	if globals.GamePlaying:
 		if Spider.get_node("Area2D/AnimationPlayer").current_animation == "Walk":
 			if Spider.position == Vector2(596, 114):
@@ -52,7 +57,7 @@ func _on_Timer_timeout():
 func _on_TouchScreenButton_pressed():
 	if globals.GamePlaying:
 		Spider.get_node("Area2D/MoveTween").stop_all()
-		Spider.get_node("Area2D/MoveTween").interpolate_property(Spider, "position", Spider.position, Vector2(Spider.position.x, 510), 2.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		Spider.get_node("Area2D/MoveTween").interpolate_property(Spider, "position", Spider.position, Vector2(Spider.position.x, 510), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		Spider.get_node("Area2D/MoveTween").start()
 		
 		if Spider.get_node("Area2D/AnimationPlayer").current_animation != "Walk":
@@ -61,7 +66,7 @@ func _on_TouchScreenButton_pressed():
 func _on_TouchScreenButton_released():
 	if globals.GamePlaying:
 		Spider.get_node("Area2D/MoveTween").stop_all()
-		Spider.get_node("Area2D/MoveTween").interpolate_property(Spider, "position", Spider.position, Vector2(Spider.position.x, 114), 2.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		Spider.get_node("Area2D/MoveTween").interpolate_property(Spider, "position", Spider.position, Vector2(Spider.position.x, 114), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		Spider.get_node("Area2D/MoveTween").start()
 		
 		if Spider.get_node("Area2D/AnimationPlayer").current_animation != "Walk":

@@ -1,6 +1,8 @@
 extends Node2D
 
 onready var globals = Globals
+var soundImage = preload("res://Images/Sound.png")
+var noSoundImage = preload("res://Images/NoSound.png")
 
 # Called when the node enters the scene tree for the first time.
 #func _ready():
@@ -40,6 +42,8 @@ func _on_Start_pressed():
 	
 	get_tree().get_root().get_node("Game/Timer").wait_time = globals.InsectSpawnTimeInterval
 	get_tree().get_root().get_node("Game/Timer").start()
+	
+	get_tree().get_root().get_node("Game/UI/MessageLabel").text = ""
 
 func _on_Settings_pressed():
 	# Move the Start Menu 1024 pixels to the left
@@ -71,3 +75,12 @@ func _on_Hard_pressed():
 
 func _on_Quit_pressed():
 	get_tree().quit()
+
+
+func _on_AudioToggle_pressed():
+	if get_tree().get_root().get_node("Game/MusicPlayer").playing:
+		get_tree().get_root().get_node("Game/MusicPlayer").stop()
+		$AudioToggle.icon = noSoundImage
+	else:
+		get_tree().get_root().get_node("Game/MusicPlayer").play()
+		$AudioToggle.icon = soundImage
