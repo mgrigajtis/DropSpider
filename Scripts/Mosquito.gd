@@ -22,7 +22,7 @@ func _on_Area2D_area_entered(area):
 			#if !get_tree().get_root().get_node("Game/EffectsPlayer").playing:
 			#	get_tree().get_root().get_node("Game/EffectsPlayer").play()
 				
-			globals.Score += 100
+			globals.Score += 50
 			get_tree().get_root().get_node("Game/UI/Score").text = str(globals.Score)
 			
 			queue_free()

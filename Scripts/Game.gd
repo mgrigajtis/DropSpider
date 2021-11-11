@@ -8,8 +8,12 @@ onready var Spider = get_node("Spider")
 
 # Preload the sprites
 var Sprites = [preload("res://Scenes/Butterfly.tscn"),
-preload("res://Scenes/Butterfly.tscn"),
-preload("res://Scenes/Butterfly.tscn"),
+preload("res://Scenes/Mosquito.tscn"),
+preload("res://Scenes/Mosquito.tscn"),
+preload("res://Scenes/Raven.tscn"),
+preload("res://Scenes/Mosquito.tscn"),
+preload("res://Scenes/Mosquito.tscn"),
+preload("res://Scenes/Mosquito.tscn"),
 preload("res://Scenes/Raven.tscn")]
 
 # Create a random number generator
@@ -20,7 +24,7 @@ func spawn_sprite():
 	var randomNumber = rng.randf_range(0, Sprites.size())
 	var sprite = Sprites[randomNumber].instance()
 	var randomYNumber = rng.randf_range(250, 500)
-	var randomSpeed = rng.randf_range(globals.InsectSpeed - 3, globals.InsectSpeed + 3)
+	var randomSpeed = rng.randf_range(globals.minSpeed, globals.maxSpeed)
 	
 	sprite.position = Vector2(-250, randomYNumber)
 	
@@ -44,14 +48,17 @@ func _process(delta):
 		if Spider.get_node("Area2D/AnimationPlayer").current_animation == "Walk":
 			if Spider.position == Vector2(596, 114):
 				Spider.get_node("Area2D/AnimationPlayer").stop(true)
+			if Spider.position == Vector2(596, 510):
+				Spider.get_node("Area2D/AnimationPlayer").stop(true)
 
 func _on_Timer_timeout():
 	if globals.GamePlaying:
 		spawn_sprite()
 	
-	if $Timer.wait_time > 0.25:
-		$Timer.wait_time = $Timer.wait_time - 0.025
-		
+	rng.randomize()
+	var randomNumber = rng.randf_range(globals.minSpawnTime, globals.maxSpawnTime)
+	
+	$Timer.wait_time = randomNumber
 	$Timer.start()
 
 func _on_TouchScreenButton_pressed():

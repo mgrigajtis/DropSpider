@@ -16,20 +16,26 @@ func check_difficulty_button():
 			difficultyMenu.get_node("Easy").text = "*️ Easy"
 			difficultyMenu.get_node("Medium").text = "Medium"
 			difficultyMenu.get_node("Hard").text = "Hard"
-			globals.InsectSpeed = 10.0
-			globals.InsectSpawnTimeInterval = 2.0
+			globals.minSpawnTime = 0.75
+			globals.maxSpawnTime = 1.5
+			globals.minSpeed = 6
+			globals.maxSpeed = 10
 		1.25:
 			difficultyMenu.get_node("Easy").text = "️Easy"
 			difficultyMenu.get_node("Medium").text = "* Medium"
 			difficultyMenu.get_node("Hard").text = "Hard"
-			globals.InsectSpeed = 5.0
-			globals.InsectSpawnTimeInterval = 1.0
+			globals.minSpawnTime = 0.5
+			globals.maxSpawnTime = 1.25
+			globals.minSpeed = 3
+			globals.maxSpeed = 6
 		1.5:
 			difficultyMenu.get_node("Easy").text = "️Easy"
 			difficultyMenu.get_node("Medium").text = "Medium"
 			difficultyMenu.get_node("Hard").text = "* Hard"
-			globals.InsectSpeed = 2.5
-			globals.InsectSpawnTimeInterval = 0.5
+			globals.minSpawnTime = 0.25
+			globals.maxSpawnTime = 1.0
+			globals.minSpeed = 1
+			globals.maxSpeed = 3
 
 func _on_Start_pressed():
 	# Move the Start Menu to -1024
@@ -40,7 +46,7 @@ func _on_Start_pressed():
 	
 	globals.GamePlaying = true
 	
-	get_tree().get_root().get_node("Game/Timer").wait_time = globals.InsectSpawnTimeInterval
+	get_tree().get_root().get_node("Game/Timer").wait_time = globals.minSpawnTime
 	get_tree().get_root().get_node("Game/Timer").start()
 	
 	get_tree().get_root().get_node("Game/UI/MessageLabel").text = ""

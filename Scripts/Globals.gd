@@ -4,22 +4,32 @@ extends Node2D
 var Score = 0
 var Difficulty = 1.0
 var GamePlaying = false
-var InsectSpeed = 10.0
-var InsectSpawnTimeInterval = 2.0
+
+var minSpawnTime = 0.75
+var maxSpawnTime = 1.5
+
+var minSpeed = 6
+var maxSpeed = 10
 
 func reset_values():
 	Score = 0
 	
 	match Difficulty:
 		1.0:
-			InsectSpeed = 10.0
-			InsectSpawnTimeInterval = 2.0
+			minSpawnTime = 0.75
+			maxSpawnTime = 1.5
+			minSpeed = 6
+			maxSpeed = 10
 		1.25:
-			InsectSpeed = 5.0
-			InsectSpawnTimeInterval = 1.0
+			minSpawnTime = 0.5
+			maxSpawnTime = 1.25
+			minSpeed = 3
+			maxSpeed = 6
 		1.5:
-			InsectSpeed = 2.5
-			InsectSpawnTimeInterval = 0.5
+			minSpawnTime = 0.25
+			maxSpawnTime = 1.0
+			minSpeed = 1
+			maxSpeed = 3
 
 func move(node, target):	
 	var moveTween = node.get_node("MoveTween")
