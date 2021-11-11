@@ -44,6 +44,7 @@ func _on_Start_pressed():
 	get_tree().get_root().get_node("Game/Timer").start()
 	
 	get_tree().get_root().get_node("Game/UI/MessageLabel").text = ""
+	get_tree().get_root().get_node("Game/UI/Score").text = str(globals.Score)
 
 func _on_Settings_pressed():
 	# Move the Start Menu 1024 pixels to the left

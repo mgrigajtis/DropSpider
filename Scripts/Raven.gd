@@ -19,6 +19,9 @@ func _on_Area2D_area_entered(area):
 			
 		if area.areaType == "Spider":
 			globals.GamePlaying = false
+			
+			globals.reset_values()
+			
 			get_tree().get_root().get_node("Game/UI/MessageLabel").text = "Game Over!"
 			
 			# Move the Start Menu to the 0, 0 position
