@@ -11,31 +11,21 @@ var noSoundImage = preload("res://Images/NoSound.png")
 func check_difficulty_button():
 	var difficultyMenu = get_node("Difficulty").get_node("DifficultyMenu")
 	
+	globals.set_difficulty()
+	
 	match globals.Difficulty:
 		1.0:
 			difficultyMenu.get_node("Easy").text = "*️ Easy"
 			difficultyMenu.get_node("Medium").text = "Medium"
 			difficultyMenu.get_node("Hard").text = "Hard"
-			globals.minSpawnTime = 0.75
-			globals.maxSpawnTime = 1.5
-			globals.minSpeed = 6
-			globals.maxSpeed = 10
 		1.25:
 			difficultyMenu.get_node("Easy").text = "️Easy"
 			difficultyMenu.get_node("Medium").text = "* Medium"
 			difficultyMenu.get_node("Hard").text = "Hard"
-			globals.minSpawnTime = 0.5
-			globals.maxSpawnTime = 1.25
-			globals.minSpeed = 3
-			globals.maxSpeed = 6
 		1.5:
 			difficultyMenu.get_node("Easy").text = "️Easy"
 			difficultyMenu.get_node("Medium").text = "Medium"
 			difficultyMenu.get_node("Hard").text = "* Hard"
-			globals.minSpawnTime = 0.25
-			globals.maxSpawnTime = 1.0
-			globals.minSpeed = 1
-			globals.maxSpeed = 3
 
 func _on_Start_pressed():
 	# Move the Start Menu to -1024

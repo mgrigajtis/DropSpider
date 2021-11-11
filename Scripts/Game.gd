@@ -6,26 +6,13 @@ onready var globals = Globals
 # Load the Spider Node
 onready var Spider = get_node("Spider")
 
-# Preload the sprites
-var Sprites = [preload("res://Scenes/Butterfly.tscn"),
-preload("res://Scenes/Mosquito.tscn"),
-preload("res://Scenes/Mosquito.tscn"),
-preload("res://Scenes/Raven.tscn"),
-preload("res://Scenes/Firefly.tscn"),
-preload("res://Scenes/Firefly.tscn"),
-preload("res://Scenes/Firefly.tscn"),
-preload("res://Scenes/Mosquito.tscn"),
-preload("res://Scenes/Mosquito.tscn"),
-preload("res://Scenes/Mosquito.tscn"),
-preload("res://Scenes/Raven.tscn")]
-
 # Create a random number generator
 var rng = RandomNumberGenerator.new()
 
 func spawn_sprite():
 	rng.randomize()
-	var randomNumber = rng.randf_range(0, Sprites.size())
-	var sprite = Sprites[randomNumber].instance()
+	var randomNumber = rng.randf_range(0, globals.Sprites.size())
+	var sprite = globals.Sprites[randomNumber].instance()
 	var randomYNumber = rng.randf_range(250, 500)
 	var randomSpeed = rng.randf_range(globals.minSpeed, globals.maxSpeed)
 	
