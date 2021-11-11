@@ -1,8 +1,6 @@
 extends Node2D
 
 onready var globals = Globals
-var ySpeed = 0
-var soundEffect = preload("res://SoundEffects/score.ogg")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	position.y += (ySpeed * globals.Difficulty)
+	pass
 
 func _on_Area2D_area_entered(area):
 	if "areaType" in area:
