@@ -2,6 +2,8 @@ extends Node2D
 
 onready var globals = Globals
 
+var areaType = "Insect"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#$Area2D/AudioStreamPlayer.stream = soundEffect
@@ -17,8 +19,7 @@ func _on_Area2D_area_entered(area):
 			queue_free()
 			
 		if area.areaType == "Spider":
-			#if !get_tree().get_root().get_node("Game/EffectsPlayer").playing:
-			#	get_tree().get_root().get_node("Game/EffectsPlayer").play()
+			globals.play_points_sound()
 				
 			globals.Score += 100
 			get_tree().get_root().get_node("Game/UI/Score").text = str(globals.Score)

@@ -4,6 +4,7 @@ extends Node2D
 var Score = 0
 var Difficulty = 1.0
 var GamePlaying = false
+var SoundOn = true
 
 var minSpawnTime = 0.75
 var maxSpawnTime = 1.5
@@ -28,6 +29,11 @@ mosquitoSprite,
 mosquitoSprite,
 mosquitoSprite,
 ravenSprite]
+
+func play_points_sound():
+	if SoundOn:
+		if !get_tree().get_root().get_node("Game/EffectsPlayer").playing:
+					get_tree().get_root().get_node("Game/EffectsPlayer").play()
 
 func set_speed():
 	match Difficulty:

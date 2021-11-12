@@ -73,8 +73,9 @@ func _on_Hard_pressed():
 func _on_Quit_pressed():
 	get_tree().quit()
 
-
 func _on_AudioToggle_pressed():
+	globals.SoundOn = !globals.SoundOn
+	
 	if get_tree().get_root().get_node("Game/MusicPlayer").playing:
 		get_tree().get_root().get_node("Game/MusicPlayer").stop()
 		$AudioToggle.icon = noSoundImage
