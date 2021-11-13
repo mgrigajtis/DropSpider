@@ -29,28 +29,28 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Theme" id=5]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=6]
 size = 60
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=8]
-default_font = SubResource( 7 )
+[sub_resource type="Theme" id=7]
+default_font = SubResource( 6 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 60
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=10]
-default_font = SubResource( 9 )
+[sub_resource type="Theme" id=9]
+default_font = SubResource( 8 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 size = 60
 font_data = ExtResource( 1 )
 
-[sub_resource type="Theme" id=12]
-default_font = SubResource( 11 )
+[sub_resource type="Theme" id=11]
+default_font = SubResource( 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=12]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
@@ -91,8 +91,8 @@ margin_right = 771.0
 margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0.882353, 0.203922, 0.203922, 1 )
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.882353, 0.203922, 0.203922, 1 )
 text = "Drop Spider!"
 align = 1
 valign = 1
@@ -215,7 +215,7 @@ margin_left = 16.0361
 margin_top = 489.994
 margin_right = 183.036
 margin_bottom = 565.994
-theme = SubResource( 8 )
+theme = SubResource( 7 )
 text = "Score:"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -226,7 +226,7 @@ margin_left = 217.379
 margin_top = 488.213
 margin_right = 257.379
 margin_bottom = 564.213
-theme = SubResource( 10 )
+theme = SubResource( 9 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -237,7 +237,7 @@ margin_left = 715.474
 margin_top = 480.542
 margin_right = 755.474
 margin_bottom = 556.542
-theme = SubResource( 12 )
+theme = SubResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -253,7 +253,7 @@ wait_time = 2.0
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2( 0.58786, 1.47424 )
 scale = Vector2( 51.12, 28.8 )
-shape = SubResource( 6 )
+shape = SubResource( 12 )
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

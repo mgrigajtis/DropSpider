@@ -32,8 +32,7 @@ ravenSprite]
 
 func play_points_sound():
 	if SoundOn:
-		if !get_tree().get_root().get_node("Game/EffectsPlayer").playing:
-					get_tree().get_root().get_node("Game/EffectsPlayer").play()
+		get_tree().get_root().get_node("Game/EffectsPlayer").play()
 
 func set_speed():
 	match Difficulty:
@@ -49,7 +48,7 @@ func set_speed():
 			maxSpeed = 6
 		1.5:
 			minSpawnTime = 0.25
-			maxSpawnTime = 1.0
+			maxSpawnTime = 0.75
 			minSpeed = 1
 			maxSpeed = 3
 
@@ -108,8 +107,3 @@ func move(node, target):
 	var moveTween = node.get_node("MoveTween")
 	moveTween.interpolate_property(node, "position", node.position, target, 1.5, Tween.TRANS_ELASTIC, Tween.EASE_OUT)
 	moveTween.start()
-
-
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-#	pass # Replace with function body.
