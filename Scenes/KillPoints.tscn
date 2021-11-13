@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Fonts/Fruktur-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/KillPoints.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 2
+outline_color = Color( 0.631373, 0.0392157, 0.0392157, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "ScaleUp"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.65098, 0.721569, 0.0156863, 1 ), Color( 1, 1, 1, 1 ), Color( 0.65098, 0.721569, 0.0156863, 1 ), Color( 1, 1, 1, 1 ), Color( 0.65098, 0.721569, 0.0156863, 1 ), Color( 1, 1, 1, 1 ), Color( 0.65098, 0.721569, 0.0156863, 1 ), Color( 1, 1, 1, 1 ), Color( 0.65098, 0.721569, 0.0156863, 1 ) ]
+}
+
+[node name="KillPoints" type="Node2D"]
+modulate = Color( 0.952936, 0.962454, 0.867268, 1 )
+scale = Vector2( 0.144192, 0.144192 )
+script = ExtResource( 2 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_right = 121.0
+margin_bottom = 40.0
+theme = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[tornado radius=1.5 freq=5]+50"
+text = "+50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_right = 121.0
+margin_bottom = 40.0
+theme = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "+50"
+text = "+50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ScaleUp = SubResource( 3 )

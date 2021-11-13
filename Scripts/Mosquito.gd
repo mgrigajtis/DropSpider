@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var globals = Globals
+var killPoints = preload("res://Scenes/KillPoints.tscn")
 
 var areaType = "Insect"
 
@@ -23,5 +24,12 @@ func _on_Area2D_area_entered(area):
 				
 			globals.Score += 50
 			get_tree().get_root().get_node("Game/UI/Score").text = str(globals.Score)
+			
+			var kp = killPoints.instance()
+			kp.position = Vector2(position)
+			get_tree().get_root().get_node("Game").add_child(kp)
+			
+			kp.set_text("+50")
+			kp.play_animation()
 			
 			queue_free()
