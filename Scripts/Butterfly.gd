@@ -2,7 +2,7 @@ extends Node2D
 
 onready var globals = Globals
 var killPoints = preload("res://Scenes/KillPoints.tscn")
-var particleEffect = preload("res://Scenes/ParticleEffect.tscn")
+var particleEffect = preload("res://Scenes/MothParticleEffect.tscn")
 
 var areaType = "Insect"
 

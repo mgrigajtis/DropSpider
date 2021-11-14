@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Images/spotlight_1.png" type="Texture" id=1]
+[ext_resource path="res://ParticleEffects/FireflyEffect.tres" type="Material" id=2]
+[ext_resource path="res://Scripts/ParticleEffect.gd" type="Script" id=3]
+
+[node name="FireflyParticleEffect" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 64
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource( 2 )
+texture = ExtResource( 1 )
