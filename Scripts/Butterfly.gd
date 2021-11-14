@@ -2,6 +2,7 @@ extends Node2D
 
 onready var globals = Globals
 var killPoints = preload("res://Scenes/KillPoints.tscn")
+var particleEffect = preload("res://Scenes/ParticleEffect.tscn")
 
 var areaType = "Insect"
 
@@ -31,5 +32,10 @@ func _on_Area2D_area_entered(area):
 			
 			kp.set_text("+100")
 			kp.play_animation()
+			
+			var effect = particleEffect.instance()
+			effect.position = Vector2(position)
+			get_tree().get_root().get_node("Game").add_child(effect)
+			effect.play_effect(1)
 			
 			queue_free()
