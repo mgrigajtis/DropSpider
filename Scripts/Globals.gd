@@ -16,19 +16,20 @@ var butterflySprite = preload("res://Scenes/Butterfly.tscn")
 var fireflySprite = preload("res://Scenes/Firefly.tscn")
 var mosquitoSprite = preload("res://Scenes/Mosquito.tscn")
 var ravenSprite = preload("res://Scenes/Raven.tscn")
+var frostBatSprite = preload("res://Scenes/FrostBat.tscn")
 
 # Preload the sprites
 var Sprites = [butterflySprite,
 mosquitoSprite,
 mosquitoSprite,
-ravenSprite,
+frostBatSprite,
 fireflySprite,
 fireflySprite,
 fireflySprite,
 mosquitoSprite,
 mosquitoSprite,
 mosquitoSprite,
-ravenSprite]
+frostBatSprite]
 
 func play_points_sound():
 	if SoundOn:
@@ -58,45 +59,45 @@ func set_difficulty():
 			Sprites = [butterflySprite,
 mosquitoSprite,
 mosquitoSprite,
-ravenSprite,
+frostBatSprite,
 fireflySprite,
 fireflySprite,
 fireflySprite,
 mosquitoSprite,
 mosquitoSprite,
 mosquitoSprite,
-ravenSprite]
+frostBatSprite]
 		1.25:
 			Sprites = [butterflySprite,
 mosquitoSprite,
 mosquitoSprite,
-ravenSprite,
-ravenSprite,
-ravenSprite,
+frostBatSprite,
+frostBatSprite,
+frostBatSprite,
 fireflySprite,
 fireflySprite,
 fireflySprite,
 mosquitoSprite,
 mosquitoSprite,
 mosquitoSprite,
-ravenSprite]
+frostBatSprite]
 		1.5:
 			Sprites = [butterflySprite,
 mosquitoSprite,
 mosquitoSprite,
-ravenSprite,
-ravenSprite,
-ravenSprite,
-ravenSprite,
-ravenSprite,
-ravenSprite,
+frostBatSprite,
+frostBatSprite,
+frostBatSprite,
+frostBatSprite,
+frostBatSprite,
+frostBatSprite,
 fireflySprite,
 fireflySprite,
 fireflySprite,
 mosquitoSprite,
 mosquitoSprite,
 mosquitoSprite,
-ravenSprite]
+frostBatSprite]
 
 func reset_values():
 	Score = 0

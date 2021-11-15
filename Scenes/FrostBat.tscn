@@ -1,14 +1,18 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sprites/RavenSpriteSheet5.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Raven.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/FrostBat.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/FrostBat.gd" type="Script" id=2]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 61.211, 14.4631 )
+
+[sub_resource type="Animation" id=2]
 resource_name = "Fly"
 length = 0.9
 loop = true
+step = 0.05
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Area2D/Sprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -20,28 +24,23 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
 }
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 3.6132 )
-
-[node name="Raven" type="Node2D"]
+[node name="FrostBat" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
 texture = ExtResource( 1 )
-hframes = 3
-vframes = 3
-frame = 7
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
-anims/Fly = SubResource( 1 )
+hframes = 5
+vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -4.48985, -4.48985 )
-scale = Vector2( 6.72, 3.49623 )
-shape = SubResource( 2 )
+position = Vector2( -1.33484, -6.00679 )
+shape = SubResource( 1 )
 
 [node name="MoveTween" type="Tween" parent="Area2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
+anims/Fly = SubResource( 2 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
