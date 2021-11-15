@@ -1,7 +1,6 @@
 extends Node2D
 
-var backgrounds = [preload("res://Images/DropSpiderBackground.png"),
-preload("res://Images/DropSpiderBackground2.png"),
+var backgrounds = [preload("res://Images/DropSpiderBackground2.png"),
 preload("res://Images/DropSpiderBackground3.png")
 ]
 
@@ -15,7 +14,7 @@ func _ready():
 	# Select a random background
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var randomNumber = rng.randi_range(0, 2)
+	var randomNumber = rng.randi_range(0, 1)
 	get_node("TextureRect").texture = backgrounds[randomNumber]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

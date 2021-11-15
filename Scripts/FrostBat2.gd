@@ -1,14 +1,9 @@
 extends Node2D
 
-func play_animation(seconds):
+signal animation_finished
+
+func play_animation():
 	$AnimationPlayer.play("JumpScare")
+	yield($AnimationPlayer, "animation_finished")
 	
-	var t = Timer.new()
-	t.set_wait_time(seconds)
-	t.set_one_shot(true)
-	self.add_child(t)
-	t.start()
-	yield(t, "timeout")
-	
-	t.queue_free()
 	queue_free()
