@@ -54,7 +54,7 @@ func _on_Timer_timeout():
 func _on_TouchScreenButton_pressed():
 	if globals.GamePlaying:
 		Spider.get_node("Area2D/MoveTween").stop_all()
-		Spider.get_node("Area2D/MoveTween").interpolate_property(Spider, "position", Spider.position, Vector2(Spider.position.x, 510), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		Spider.get_node("Area2D/MoveTween").interpolate_property(Spider, "position", Spider.position, Vector2(Spider.position.x, 510), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		Spider.get_node("Area2D/MoveTween").start()
 		
 		if Spider.get_node("Area2D/AnimationPlayer").current_animation != "Walk":
@@ -63,7 +63,7 @@ func _on_TouchScreenButton_pressed():
 func _on_TouchScreenButton_released():
 	if globals.GamePlaying:
 		Spider.get_node("Area2D/MoveTween").stop_all()
-		Spider.get_node("Area2D/MoveTween").interpolate_property(Spider, "position", Spider.position, Vector2(Spider.position.x, 114), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+		Spider.get_node("Area2D/MoveTween").interpolate_property(Spider, "position", Spider.position, Vector2(Spider.position.x, 114), 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN)
 		Spider.get_node("Area2D/MoveTween").start()
 		
 		if Spider.get_node("Area2D/AnimationPlayer").current_animation != "Walk":

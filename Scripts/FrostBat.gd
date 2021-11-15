@@ -34,5 +34,5 @@ func _on_Area2D_area_entered(area):
 			globals.move(get_tree().get_root().get_node("Game/UI/Title"), (Vector2(0, 0)))
 			
 			var spider = get_tree().get_root().get_node("Game/Spider")
-			spider.get_node("Area2D").get_node("MoveTween").interpolate_property(spider, "position", spider.position, Vector2(spider.position.x, 114), 1.0, Tween.TRANS_LINEAR, Tween.EASE_IN)
+			spider.get_node("Area2D").get_node("MoveTween").interpolate_property(spider, "position", spider.position, Vector2(spider.position.x, 114), 0.75, Tween.TRANS_LINEAR, Tween.EASE_IN)
 			get_tree().get_root().get_node("Game/Spider/Area2D/AnimationPlayer").stop(true)
