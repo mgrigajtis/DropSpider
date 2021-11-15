@@ -35,6 +35,10 @@ func play_points_sound():
 	if SoundOn:
 		get_tree().get_root().get_node("Game/EffectsPlayer").play()
 
+func play_bat_sound():
+	if SoundOn:
+		get_tree().get_root().get_node("Game/BatPlayer").play()
+
 func set_speed():
 	match Difficulty:
 		1.0:

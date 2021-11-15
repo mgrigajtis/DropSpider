@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Fonts/Fruktur-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Images/DropSpiderBackground.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Images/Sound.png" type="Texture" id=9]
 [ext_resource path="res://SoundEffects/score.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Scripts/Background.gd" type="Script" id=11]
+[ext_resource path="res://SoundEffects/LotsOfBats.mp3" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -263,6 +264,9 @@ autoplay = true
 
 [node name="EffectsPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+
+[node name="BatPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
 
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Start" to="UI/Menu Buttons" method="_on_Start_pressed"]
 [connection signal="pressed" from="UI/Menu Buttons/Start/StartMenu/Settings" to="UI/Menu Buttons" method="_on_Settings_pressed"]

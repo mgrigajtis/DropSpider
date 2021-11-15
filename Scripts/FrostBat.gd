@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var globals = Globals
+var frostBat2 = preload("res://Scenes/FrostBat2.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,6 +18,23 @@ func _on_Area2D_area_entered(area):
 			globals.reset_values()
 			
 			get_tree().get_root().get_node("Game/UI/MessageLabel").text = "Game Over!"
+			
+			globals.play_bat_sound()
+			
+			var fb2 = frostBat2.instance()
+			fb2.position = Vector2(512, 256)
+			get_tree().get_root().get_node("Game").add_child(fb2)
+			
+			fb2.play_animation(1)
+			
+			var t = Timer.new()
+			t.set_wait_time(1)
+			t.set_one_shot(true)
+			get_tree().get_root().get_node("Game").add_child(t)
+			t.start()
+			yield(t, "timeout")
+			
+			t.queue_free()
 			
 			# Move the Start Menu to the 0, 0 position
 			globals.move(get_tree().get_root().get_node("Game/UI/Menu Buttons/Start"), (Vector2(0, 0)))

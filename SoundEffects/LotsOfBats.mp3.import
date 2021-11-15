@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LotsOfBats.mp3-8efc488bf60c5554ec4bcb0fa2d173b4.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/LotsOfBats.mp3"
+dest_files=[ "res://.import/LotsOfBats.mp3-8efc488bf60c5554ec4bcb0fa2d173b4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
