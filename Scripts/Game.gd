@@ -11,9 +11,9 @@ var rng = RandomNumberGenerator.new()
 
 func spawn_sprite():
 	rng.randomize()
-	var randomNumber = rng.randf_range(0, globals.Sprites.size())
+	var randomNumber = rng.randi_range(0, globals.Sprites.size() - 1)
 	var sprite = globals.Sprites[randomNumber].instance()
-	var randomYNumber = rng.randf_range(250, 500)
+	var randomYNumber = rng.randi_range(250, 500)
 	var randomSpeed = rng.randf_range(globals.minSpeed, globals.maxSpeed)
 	
 	sprite.position = Vector2(-250, randomYNumber)

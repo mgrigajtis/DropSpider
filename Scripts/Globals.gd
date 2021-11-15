@@ -9,8 +9,8 @@ var SoundOn = true
 var minSpawnTime = 0.75
 var maxSpawnTime = 1.5
 
-var minSpeed = 6
-var maxSpeed = 10
+var minSpeed = 3.0
+var maxSpeed = 6.0
 
 var butterflySprite = preload("res://Scenes/Butterfly.tscn")
 var fireflySprite = preload("res://Scenes/Firefly.tscn")
@@ -39,18 +39,18 @@ func set_speed():
 		1.0:
 			minSpawnTime = 0.75
 			maxSpawnTime = 1.5
-			minSpeed = 6
-			maxSpeed = 10
+			minSpeed = 3.0
+			maxSpeed = 6.0
 		1.25:
 			minSpawnTime = 0.5
 			maxSpawnTime = 1.25
-			minSpeed = 3
-			maxSpeed = 6
+			minSpeed = 2.0
+			maxSpeed = 3.0
 		1.5:
 			minSpawnTime = 0.25
 			maxSpawnTime = 0.75
-			minSpeed = 1
-			maxSpeed = 3
+			minSpeed = 1.0
+			maxSpeed = 2.0
 
 func set_difficulty():
 	match Difficulty:

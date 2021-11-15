@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Fonts/Fruktur-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Images/DropSpiderBackground.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://SoundEffects/music.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Images/Sound.png" type="Texture" id=9]
 [ext_resource path="res://SoundEffects/score.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Scripts/Background.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -56,6 +57,7 @@ default_font = SubResource( 10 )
 script = ExtResource( 5 )
 
 [node name="Background" type="Node2D" parent="."]
+script = ExtResource( 11 )
 
 [node name="ColorRect" type="ColorRect" parent="Background"]
 visible = false

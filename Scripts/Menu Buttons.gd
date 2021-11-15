@@ -12,6 +12,7 @@ func check_difficulty_button():
 	var difficultyMenu = get_node("Difficulty").get_node("DifficultyMenu")
 	
 	globals.set_difficulty()
+	globals.set_speed()
 	
 	match globals.Difficulty:
 		1.0:
