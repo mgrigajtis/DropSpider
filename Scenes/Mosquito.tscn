@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Mosquito.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Mosquito.gd" type="Script" id=2]
+[ext_resource path="res://Images/light.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,5 +41,10 @@ frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D"]
 anims/Fly = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 0.1
+color = Color( 0.427451, 0.278431, 0.490196, 1 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]

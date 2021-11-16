@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Butterfly.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Moth.png" type="Texture" id=2]
+[ext_resource path="res://Images/light.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 8.24693 )
@@ -43,5 +44,10 @@ frame = 6
 anims/Fly = SubResource( 2 )
 
 [node name="MoveTween" type="Tween" parent="Area2D"]
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 0.1
+color = Color( 0.505882, 0.478431, 0.478431, 1 )
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
